@@ -1,9 +1,9 @@
 const Header = () => {
   return (
-    <header className="nav bg-gradient-to-b from-gray-800 p-5">
-      <div className="container mx-auto relative z-100">
+    <header className="nav bg-gradient-to-b from-black p-5 absolute z-100 left-0 top-0 w-full">
+      <div className="px-15">
         <div className="logo-container">
-          <h1 className="text-2xl font-bold text-red-600">CinesphereGPT</h1>
+          <h1 className="text-3xl font-bold text-red-600 text-shadow-black">CinesphereGPT</h1>
         </div>
       </div>
     </header>
