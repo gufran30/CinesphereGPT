@@ -4,7 +4,11 @@ import { auth } from "../services/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
+import Header from "./Header";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const LoginPage = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -14,6 +18,8 @@ const LoginPage = () => {
   const email = useRef(null);
   const name = useRef(null);
   const password = useRef(null);
+
+  const dispatch = useDispatch();
 
   // Toggles the form type and clears any previous error messages
   const handleSignInSignUpForm = () => {
@@ -52,6 +58,28 @@ const LoginPage = () => {
           // Signed up
           const user = userCredential.user;
           console.log(user);
+
+          updateProfile(user, {
+            displayName: nameValue,
+            photoURL: "https://avatars.githubusercontent.com/u/171597543?v=4",
+          })
+            .then(() => {
+              // Profile updated!
+              // dispatch user data to appStore
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+            })
+            .catch((error) => {
+              // An error occurred
+              setErrorMessage(error);
+            });
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -76,6 +104,7 @@ const LoginPage = () => {
 
   return (
     <div className="login-page relative w-full min-h-dvh bg-stone-800 text-white flex justify-center items-center">
+      <Header />
       <div className="bg-container absolute inset-0 w-full h-full before:content-[''] before:bg-black/50 before:absolute before:inset-0">
         <img
           className="w-full h-full object-cover"

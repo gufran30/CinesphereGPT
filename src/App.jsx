@@ -1,13 +1,26 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Header from "./components/Header";
 import LoginPage from "./components/LoginPage";
-// require("dotenv").config();
+import Browse from "./components/Browse";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 const App = () => {
+  const appRouter = createBrowserRouter([
+    {
+      path: "/",
+      element: <LoginPage />,
+    },
+    {
+      path: "/browse",
+      element: <Browse />,
+    },
+  ]);
+
   return (
-    <div>
-      <Header />
-      <LoginPage />
-    </div>
+    <Provider store={appStore}>
+      <RouterProvider router={appRouter}> </RouterProvider>
+    </Provider>
   );
 };
 
