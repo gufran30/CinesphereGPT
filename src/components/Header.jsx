@@ -26,8 +26,9 @@ const Header = () => {
 
   useEffect(() => {
     // get the current user is by setting an observer on the Auth object
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
+        // User is signed in
         const { uid, email, displayName, photoURL } = user;
         dispatch(
           addUser({
@@ -44,6 +45,9 @@ const Header = () => {
         navigate("/");
       }
     });
+
+    // unsubscribe when components unmounts - this is hygiene practice
+    return () => unsubscribe();
   }, []);
 
   return (

@@ -9,6 +9,7 @@ import {
 import Header from "./Header";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import userIcon from "/images/userIcon.png"
 
 const LoginPage = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -61,7 +62,7 @@ const LoginPage = () => {
 
           updateProfile(user, {
             displayName: nameValue,
-            photoURL: "https://avatars.githubusercontent.com/u/171597543?v=4",
+            photoURL: userIcon,
           })
             .then(() => {
               // Profile updated!
