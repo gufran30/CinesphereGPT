@@ -9,7 +9,8 @@ import {
 import Header from "./Header";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import userIcon from "/images/userIcon.png"
+import userIcon from "/images/userIcon.png";
+import bgBanner from "/images/bg-img.png";
 
 const LoginPage = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -109,7 +110,7 @@ const LoginPage = () => {
       <div className="bg-container absolute inset-0 w-full h-full before:content-[''] before:bg-black/50 before:absolute before:inset-0">
         <img
           className="w-full h-full object-cover"
-          src="/images/bg-img.png"
+          src={bgBanner}
           alt="Background Image"
         />
       </div>

@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Header from "./components/Header";
 import LoginPage from "./components/LoginPage";
 import Browse from "./components/Browse";
 import { Provider } from "react-redux";

@@ -4,11 +4,9 @@ import VideoTitle from "./VideoTitle";
 
 const MainContainer = () => {
   const movies = useSelector((store) => store.movies?.nowPlayingMovies);
-  console.log(movies);
   if (!movies) return; // this is known as Early Return
 
-  const mainMovie = movies[0];
-  console.log(mainMovie);
+  const mainMovie = movies[2];
   const { id, title, overview } = mainMovie;
 
   return (
