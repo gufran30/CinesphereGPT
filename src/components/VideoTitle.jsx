@@ -4,11 +4,11 @@ const VideoTitle = ({ title, overview }) => {
   return (
     <div
       className="text-white bg-gradient-to-r from-black
-     absolute inset-0 "
+     absolute inset-0 h-screen "
     >
-      <div className="w-1/4 absolute left-[5%] top-[45%]">
+      <div className="w-1/4 min-w-[25rem] absolute left-[5%] top-[40%]">
         <div className="text-contents">
-          <h1 className="text-4xl font-bold mb-3">{title}</h1>
+          <h1 className="text-3xl font-bold mb-3">{title}</h1>
           <p className="">{overview}</p>
         </div>
         <div className="buttons flex gap-5 mt-7 text-lg">

@@ -1,1 +1,10 @@
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none
+}
+
 @import "tailwindcss";

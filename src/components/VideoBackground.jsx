@@ -11,12 +11,12 @@ const VideoBackground = ({ movieId }) => {
   if (!trailerVideo) return;
 
   // Construct the YouTube URL with the necessary parameters
-  const videoSrc = `https://www.youtube.com/embed/${trailerVideo.key}?autoplay=1&mute=1&loop=1&playlist=${trailerVideo.key}&controls=0&rel=0&disablekb=1`;
+  const videoSrc = `https://www.youtube.com/embed/${trailerVideo.key}?autoplay=1&mute=1&loop=1&playlist=${trailerVideo.key}&controls=0&rel=0&disablekb=1&vq=hd720`;
 
   return (
     <div className="w-screen h-screen overflow-hidden">
       <iframe
-        className="w-screen  aspect-video"
+        className="w-screen aspect-video"
         src={videoSrc}
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

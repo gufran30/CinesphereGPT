@@ -11,10 +11,9 @@ const Browse = () => {
   return (
     <div>
       <Header />
-      <div className="bg-green-400 ">
-        {/* <h1>Browse</h1> */}
+      <div className="bg-black text-white ">
         <MainContainer />
-        {/* <SecondaryContainer /> */}
+        <SecondaryContainer />
       </div>
     </div>
   );

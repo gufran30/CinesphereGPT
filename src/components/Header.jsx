@@ -52,7 +52,7 @@ const Header = () => {
 
   return (
     <header className="nav bg-gradient-to-b from-black p-5 absolute z-1000 left-0 top-0 w-full">
-      <div className="px-15 flex items-center justify-between">
+      <div className="px-10 flex items-center justify-between">
         <div className="logo-container">
           <h1 className="text-3xl font-bold text-red-600 text-shadow-black">
             CinesphereGPT
