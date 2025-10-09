@@ -32,8 +32,9 @@ const Header = () => {
     dispatch(toggleGPTSearchView());
   };
 
+  const showGPTSearch = useSelector((store) => store.gpt.showGPTSearch);
+
   const handleLanguageChange = (e) => {
-    // console.log(e.target.value);
     dispatch(changeLanguage(e.target.value));
   };
 
@@ -74,25 +75,27 @@ const Header = () => {
 
         {user && (
           <div className="flex items-center gap-3">
-            <div>
-              <select
-                onClick={handleLanguageChange}
-                className="text-white bg-gray-900 px-2 py-1"
-              >
-                {supportedlanguages.map((lang) => (
-                  <option key={lang.identifier} value={lang.identifier}>
-                    {lang.name}
-                  </option>
-                ))}
-              </select>
-            </div>
+            {showGPTSearch && (
+              <div>
+                <select
+                  onClick={handleLanguageChange}
+                  className="text-white bg-gray-900 px-2 py-1"
+                >
+                  {supportedlanguages.map((lang) => (
+                    <option key={lang.identifier} value={lang.identifier}>
+                      {lang.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            )}
 
             <div>
               <button
                 onClick={handleGPTSearchClick}
                 className="bg-purple-700 text-white px-3 py-1 rounded-lg cursor-pointer hover:bg-purple-800"
               >
-                GPT Search
+                {showGPTSearch ? "Homepage" : "GPT Search"}
               </button>
             </div>
 
