@@ -6,7 +6,7 @@ const MainContainer = () => {
   const movies = useSelector((store) => store.movies?.nowPlayingMovies);
   if (!movies) return; // this is known as Early Return
 
-  const mainMovie = movies[2];
+  const mainMovie = movies[4];
   const { id, title, overview } = mainMovie;
 
   return (

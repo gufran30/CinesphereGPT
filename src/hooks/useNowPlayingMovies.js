@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addNowPlayingMovies } from "../utils/movieSlice";
 import { TMDB_API_OPTIONS } from "../utils/constants";
 import { useEffect } from "react";
@@ -6,6 +6,12 @@ import { useEffect } from "react";
 export const useNowPlayingMovies = () => {
   // Fetch data from TMDB API and update store
   const dispatch = useDispatch();
+
+  // avoiding memoization
+  const nowPlayingMovies = useSelector(
+    (store) => store.movie?.nowPlayingMovies
+  );
+  console.log(nowPlayingMovies);
 
   const getNowPlayingMovies = async () => {
     const data = await fetch(
@@ -16,8 +22,8 @@ export const useNowPlayingMovies = () => {
     dispatch(addNowPlayingMovies(json.results));
   };
 
-  // will call nowPlayingMovies only onse when browse component mount
+  // will call nowPlayingMovies only once when browse component mount
   useEffect(() => {
-    getNowPlayingMovies();
+    !nowPlayingMovies && getNowPlayingMovies();
   }, []);
 };

@@ -109,13 +109,13 @@ const LoginPage = () => {
       <Header />
       <div className="bg-container absolute inset-0 w-full h-full before:content-[''] before:bg-black/50 before:absolute before:inset-0">
         <img
-          className="w-full h-full object-cover"
+          className="h-screen w-screen object-cover"
           src={bgBanner}
           alt="Background Image"
         />
       </div>
 
-      <div className="bg-black/70 rounded-md absolute z-50 text-white max-w-[31rem] w-[50%] min-w-[25rem] p-18">
+      <div className="bg-black/70 rounded-md absolute p-17 ">
         <form onSubmit={handleFormSubmit}>
           <h1 className="text-3xl font-bold mb-7">
             {isSignInForm ? "Sign In" : "Sign Up"}

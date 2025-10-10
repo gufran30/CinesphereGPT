@@ -66,9 +66,9 @@ const Header = () => {
 
   return (
     <header className="nav bg-gradient-to-b from-black p-5 absolute z-1000 left-0 top-0 w-full">
-      <div className="px-10 flex items-center justify-between">
+      <div className="sm:px-10 flex flex-col gap-5 md:gap-0 md:flex-row items-center justify-center md:justify-between">
         <div className="logo-container">
-          <h1 className="text-3xl font-bold text-red-600 text-shadow-black">
+          <h1 className=" text-2xl md:text-3xl font-bold text-red-600 text-shadow-black">
             CinesphereGPT
           </h1>
         </div>
@@ -99,7 +99,7 @@ const Header = () => {
               </button>
             </div>
 
-            <div className="w-8">
+            <div className="w-8 hidden md:block">
               <img
                 className="w-full object-cover object-center"
                 src={user?.photoURL || userIcon}
