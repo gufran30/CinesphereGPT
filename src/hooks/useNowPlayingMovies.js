@@ -11,7 +11,7 @@ export const useNowPlayingMovies = () => {
   const nowPlayingMovies = useSelector(
     (store) => store.movie?.nowPlayingMovies
   );
-  console.log(nowPlayingMovies);
+  // console.log(nowPlayingMovies);
 
   const getNowPlayingMovies = async () => {
     const data = await fetch(

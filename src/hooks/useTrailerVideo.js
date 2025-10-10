@@ -7,7 +7,6 @@ export const useTrailerVideo = (movieId) => {
   const dispatch = useDispatch();
 
   const trailerVideo = useSelector((store) => store.movie?.trailerVideo);
-  console.log(trailerVideo);
 
   const fetchTrailerVideo = async () => {
     const videoUrl = `https://api.themoviedb.org/3/movie/${movieId}/videos`;
